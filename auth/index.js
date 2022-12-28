@@ -1,9 +1,7 @@
 const express = require('express')
 const jose = require('jose')
+const jwtHelper = require('./jwtHelper')
 const router = express.Router()
-const jwtSecret = new TextEncoder().encode(
-    'Hello world!',
-  )
 
 router.use(async (req, res, next) => {
     console.log('Time: ', Date.now())
@@ -14,7 +12,7 @@ router.use(async (req, res, next) => {
     }
 
     try {
-        const { payload, protectedHeader } = await jose.jwtVerify(jwt, jwtSecret)
+        const { payload, protectedHeader } = await jose.jwtVerify(jwt, jwtHelper.Secret)
         console.log(protectedHeader)
         console.log(payload)
         console.log('Auth Check: success')
@@ -28,10 +26,9 @@ router.use(async (req, res, next) => {
 
 function getJWTfromRequest(req) {
     if(req.headers.authorization &&
-        req.headers.authorization.split(" ")[0] === 'Bearer') {
-            return req.headers.authorization.split(" ")[1]
-        }
-    
+    req.headers.authorization.split(" ")[0] === 'Bearer') {
+        return req.headers.authorization.split(" ")[1]
+    }
     if(req.cookies.authorization) {
         return req.cookies.authorization
     }
