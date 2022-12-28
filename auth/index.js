@@ -1,4 +1,5 @@
 const express = require('express')
+const { STATUS_CODES } = require('http')
 const jose = require('jose')
 const jwtHelper = require('./jwtHelper')
 const router = express.Router()
@@ -8,7 +9,7 @@ router.use(async (req, res, next) => {
 
     jwt = getJWTfromRequest(req)
     if(!jwt) {
-        return res.redirect("/login")
+        return res.status(401).end()
     }
 
     try {
@@ -19,7 +20,8 @@ router.use(async (req, res, next) => {
     } catch(err) {
         console.log(err)
         console.log('Auth Check: failed')
-        return res.redirect("/login")
+        //return res.redirect("/login")
+        return res.status(401).end()
     }
     next()
 })
