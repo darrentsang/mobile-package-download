@@ -1,0 +1,8 @@
+
+GET http://localhost:5001/packages HTTP/1.1
+
+###
+GET http://localhost:5001/upload HTTP/1.1
+
+###
+GET http://localhost:5001/auth HTTP/1.1
