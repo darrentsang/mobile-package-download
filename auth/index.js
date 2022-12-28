@@ -1,10 +1,7 @@
-const express = require('express')
-const { STATUS_CODES } = require('http')
 const jose = require('jose')
 const jwtHelper = require('./jwtHelper')
-const router = express.Router()
 
-router.use(async (req, res, next) => {
+const authValidate = async function (req, res, next) {
     console.log('Time: ', Date.now())
 
     jwt = getJWTfromRequest(req)
@@ -16,15 +13,16 @@ router.use(async (req, res, next) => {
         const { payload, protectedHeader } = await jose.jwtVerify(jwt, jwtHelper.Secret)
         console.log(protectedHeader)
         console.log(payload)
-        console.log('Auth Check: success')
+        console.log('Auth Validate: success')
     } catch(err) {
         console.log(err)
-        console.log('Auth Check: failed')
+        console.log('Auth Validate: failed')
         //return res.redirect("/login")
         return res.status(401).end()
     }
+    
     next()
-})
+}
 
 function getJWTfromRequest(req) {
     if(req.headers.authorization &&
@@ -40,4 +38,4 @@ function getJWTfromRequest(req) {
     return undefined
 }
 
-module.exports = router
+module.exports = { authValidate }
