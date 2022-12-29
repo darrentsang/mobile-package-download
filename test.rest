@@ -20,7 +20,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgS
 
 ### Generated JWT
 GET http://localhost:5001/packages HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1cm46ZXhhbXBsZTpjbGFpbSI6dHJ1ZSwiaWF0IjoxNjcyMjI2MTY3LCJpc3MiOiJ1cm46ZXhhbXBsZTppc3N1ZXIiLCJhdWQiOiJ1cm46ZXhhbXBsZTphdWRpZW5jZSIsImV4cCI6MTY3MjIzMzM2N30.-dH-Nf0OYm0MFV3RSVGnozmPItTKhq7B7MAdNatBI4Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1cm46ZXhhbXBsZTpjbGFpbSI6dHJ1ZSwiaWF0IjoxNjcyMjg2MDMyLCJpc3MiOiJ1cm46ZXhhbXBsZTppc3N1ZXIiLCJhdWQiOiJ1cm46ZXhhbXBsZTphdWRpZW5jZSIsImV4cCI6MTY3MjI5MzIzMn0.3Bl8guC7blprmsaaABynLX_zTuWVHLyrSg2llpjqybw
 
 ### Invalid Signature JWT
 GET http://localhost:5001/packages HTTP/1.1

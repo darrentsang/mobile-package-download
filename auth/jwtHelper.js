@@ -1,7 +1,7 @@
 const jose = require('jose')
 
 const Secret = new TextEncoder().encode(
-    'Hello world!',
+    process.env.AUTH_JWTHELPER_SECRET
   )
 
 async function generateJWT() {
@@ -16,5 +16,4 @@ async function generateJWT() {
   console.log(jwt)
 }
 
-//generateJWT()
 module.exports = {Secret, generateJWT}
