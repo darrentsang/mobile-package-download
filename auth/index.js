@@ -18,7 +18,7 @@ const authValidate = async function (req, res, next) {
         console.log(err)
         console.log('Auth Validate: failed')
         //return res.redirect("/login")
-        return res.status(401).end()
+        return res.status(403).end()
     }
     
     next()
