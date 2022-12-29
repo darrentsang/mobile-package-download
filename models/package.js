@@ -25,4 +25,4 @@ const Package = sequelize.define("Package", {
     ]
 })
 
-module.exports = { Package }
+module.exports = Package
