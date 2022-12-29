@@ -1,5 +1,14 @@
 @AuthorizationToken = Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1cm46ZXhhbXBsZTpjbGFpbSI6dHJ1ZSwiaWF0IjoxNjcyMjk5NzAxLCJpc3MiOiJ1cm46ZXhhbXBsZTppc3N1ZXIiLCJhdWQiOiJ1cm46ZXhhbXBsZTphdWRpZW5jZSIsImV4cCI6MTY3MjMxNzcwMX0.i81cFqUAa8aGB2ChTQcjqvDONVS1KUktjVNtmVR0uuU
 
+### Login
+POST http://localhost:5001/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "darren",
+    "password": "123456"
+}
+
 ### Packages list
 GET http://localhost:5001/packages HTTP/1.1
 Authorization: {{AuthorizationToken}}
