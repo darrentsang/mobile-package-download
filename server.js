@@ -1,6 +1,7 @@
 var express = require('express');
 var cookieParser = require('cookie-parser')
 var app = express();
+require('dotenv').config()
 
 const {authValidate} = require('./auth')
 const packages = require('./packages')
