@@ -4,7 +4,13 @@ const { sequelize } = require('../db/connection');
 const User = sequelize.define('User', {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    roles: DataTypes.STRING
+    roles: { 
+        type: DataTypes.STRING,
+        get() {
+            const rawValue = this.getDataValue('roles');
+            return rawValue ? rawValue.split(',') : null;
+          }
+    }
 }, {
     indexes: [{
         unique: true,
