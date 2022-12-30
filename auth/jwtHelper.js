@@ -6,16 +6,18 @@ const Secret = new TextEncoder().encode(
 const tokenExpirationTime = process.env.AUTH_JWTHELPER_TOKENEXPIRATIONTIME
 
 console.log('Auth JWTHelper Secret ---> ', process.env.AUTH_JWTHELPER_SECRET)
-async function generateJWT() {
-  const jwt = await new jose.SignJWT({ 'urn:example:claim': true })
+async function generateJWT(user) {
+  const jwt = await new jose.SignJWT({ 
+    'username': user.username,
+    'roles': user.roles,
+  })
   .setProtectedHeader({ alg: 'HS256' })
   .setIssuedAt()
-  .setIssuer('urn:example:issuer')
-  .setAudience('urn:example:audience')
   .setExpirationTime(tokenExpirationTime)
   .sign(Secret)
   
   console.log(jwt)
+  return jwt
 }
 
 module.exports = {Secret, generateJWT}

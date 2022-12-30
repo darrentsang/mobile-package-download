@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const jwtHelper = require('./jwtHelper')
 const User = require('../models/user')
 
 router.post('/', async (req, res) => {
@@ -31,10 +32,15 @@ router.post('/', async (req, res) => {
             })
         }
 
-        // TODO: Generate JWT
-        // TODO: Issue Cookie and return Token
+        const jwt = await jwtHelper.generateJWT(loginUser)
+        res.cookie("auth", jwt, {
+            httpOnly: true,
+            secure: true
+        })
+
         return res.send({
-            returnCode: ReturnCode.SUCCESS
+            returnCode: ReturnCode.SUCCESS,
+            sessionJWT: jwt
         })
 
     } catch (e) {
