@@ -1,6 +1,6 @@
 const express = require('express')
 const { sequelize } = require('../db/connection')
-const { Package } = require('../models/package')
+const Package = require('../models/package')
 const router = express.Router()
 const pageSize = 20
 
