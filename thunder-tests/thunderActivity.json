@@ -1,0 +1,260 @@
+[
+  {
+    "_id": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+    "colId": "history",
+    "containerId": "",
+    "name": "login",
+    "url": "{{host}}/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:05:31.674Z",
+    "modified": "2023-01-01T06:42:26.235Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\": \"darren\",\n  \"password\": \"123456\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.sessionJWT",
+        "action": "setto",
+        "value": "{{authorization}}"
+      }
+    ]
+  },
+  {
+    "_id": "f44f5132-f082-40b5-8618-169f8e1feaf4",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages",
+    "url": "{{host}}/packages",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:04:22.941Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "11107408-2e91-40b1-ac71-1161258bb19d",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/DistinctDisplayName ",
+    "url": "{{host}}/packages/distinctdisplayname",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:04:24.112Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "930122b4-6e04-41e1-ae49-6f47395c44cf",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /packages/upload(Android)",
+    "url": "{{host}}/packages/upload",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:44:23.245Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"fileName\": \"bitbar-sample-app.apk\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.uuid",
+        "action": "setto",
+        "value": "{{upload.uuid}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        }
+      ]
+    }
+  },
+  {
+    "_id": "6fdcaf88-8ea8-4bc5-bdef-4c63ef9eff98",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /packages/upload(Android)/:uuid",
+    "url": "{{host}}/packages/upload/{{upload.uuid}}",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:44:29.194Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "../data/packages/bitbar-sample-app.apk"
+        }
+      ]
+    },
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        },
+        {
+          "reqId": "930122b4-6e04-41e1-ae49-6f47395c44cf",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "7c389253-f9f2-4d4f-ae72-c2fe6762463a",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /packages/upload(ios)/:uuid",
+    "url": "{{host}}/packages/upload/{{upload.uuid}}",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:57:02.280Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "../data/sample/bitbar-ios-sample.ipa"
+        }
+      ]
+    },
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        },
+        {
+          "reqId": "3e2e1b59-ddfb-4e4d-b8ec-eb9f21187bcc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "3e2e1b59-ddfb-4e4d-b8ec-eb9f21187bcc",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /packages/upload(ios)",
+    "url": "{{host}}/packages/upload",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T07:55:20.170Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"fileName\": \"bitbar-ios-sample.ipa\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.uuid",
+        "action": "setto",
+        "value": "{{upload.uuid}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-mins",
+          "triggerValue": "60"
+        }
+      ]
+    }
+  }
+]

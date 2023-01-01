@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "32d8f037-a88a-4d14-8a7b-336cb7be858c",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -2,
+    "created": "2023-01-01T06:25:11.740Z",
+    "modified": "2023-01-01T06:25:11.740Z",
+    "data": []
+  },
+  {
+    "_id": "d11e351c-5460-4b6e-a4f0-16fc9146329e",
+    "name": "(Local Env)",
+    "default": false,
+    "global": true,
+    "local": true,
+    "sortNum": -1,
+    "created": "2023-01-01T06:25:23.576Z",
+    "modified": "2023-01-01T06:25:23.576Z",
+    "data": []
+  },
+  {
+    "_id": "2185d92a-e15a-4bec-8648-43ef6891ad94",
+    "name": "local",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-01-01T06:41:07.003Z",
+    "modified": "2023-01-01T06:41:07.003Z",
+    "data": [
+      {
+        "name": "host",
+        "value": "http://localhost:5001"
+      },
+      {
+        "name": "authorization",
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRhcnJlbiIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY3MjU1OTA2NiwiZXhwIjoxNjcyNTc3MDY2fQ.gBFJ_k1PoU0XeHwhaLrrFuZYb4pwZq08fGUkXDju5lg"
+      },
+      {
+        "name": "upload.uuid",
+        "value": "af4425a4-3221-4f97-9d36-648e24fe4d76"
+      }
+    ]
+  }
+]
