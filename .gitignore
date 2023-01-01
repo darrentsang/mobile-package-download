@@ -101,3 +101,8 @@ dist
 .tern-port
 
 .DS_Store
+
+data/packages/
+data/tmp/
+data/caches/
+data/database.sqlite
