@@ -1,4 +1,5 @@
 const AppInfoParser = require('app-info-parser')
+const Package = require('../models/package')
 
 
 async function extractAppInfo(filePath) {
@@ -14,8 +15,25 @@ async function extractAppInfo(filePath) {
         throw err
     }
 }
+function convertIOSAppInfoToPackage(appInfo) {
+    return Package.build({
+        platform: 'ios',
+        versionName: appInfo.CFBundleShortVersionString,
+        buildVersion: appInfo.CFBundleVersion,
+        displayName: appInfo.CFBundleDisplayName,
+        bundleIdentifier: appInfo.CFBundleIdentifier,
+        icon: appInfo.icon
+    })
+}
+function convertAndroidppInfoToPackage(appInfo) {
+    return Package.build({
+        platform: 'android',
+        versionName: appInfo.versionName,
+        buildVersion: appInfo.versionCode,
+        displayName: appInfo.application.label[0],
+        bundleIdentifier: appInfo.package,
+        icon: appInfo.icon
+    })
+}
 
-//extractAppInfo('./data/packages/bitbar-ios-sample.ipa')
-//extractAppInfo('./data/packages/calculator.ipa')
-
-module.exports = { extractAppInfo}
+module.exports = { extractAppInfo, convertIOSAppInfoToPackage, convertAndroidppInfoToPackage }

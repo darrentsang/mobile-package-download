@@ -132,10 +132,10 @@ async function convertAndSaveAppInfoToPackage(uploadFile, packageFilePath) {
     var package
     switch (platform){
         case 'ios':
-            package = convertIOSAppInfoToPackage(appInfo)
+            package = appInfoHelper.convertIOSAppInfoToPackage(appInfo)
             break;
         case 'android': 
-            packge =  convertAndroidppInfoToPackage(appInfo)
+            package =  appInfoHelper.convertAndroidppInfoToPackage(appInfo)
             break;       
     }
     package.fileName = path.basename(packageFilePath)
@@ -149,27 +149,6 @@ function getPlatform(fileExt) {
     if(fileExt === '.apk') return 'android'
 
     throw new Error("Invalid file extension: ", fileExt)
-}
-
-function convertIOSAppInfoToPackage(appInfo) {
-    return Package.build({
-        platform: 'ios',
-        versionName: appInfo.CFBundleShortVersionString,
-        buildVersion: appInfo.CFBundleVersion,
-        displayName: appInfo.CFBundleDisplayName,
-        bundleIdentifier: appInfo.CFBundleIdentifier,
-        icon: appInfo.icon
-    })
-}
-function convertAndroidppInfoToPackage(appInfo) {
-    return Package.build({
-        platform: 'android',
-        versionName: appInfo.versionName,
-        buildVersion: appInfo.versionCode,
-        displayName: appInfo.application.label,
-        bundleIdentifier: appInfo.package,
-        icon: appInfo.icon
-    })
 }
 
 
