@@ -2,6 +2,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser')
 var app = express();
 require('dotenv').config()
+global.__basedir = __dirname;
 
 const {authValidate} = require('./auth')
 const login = require('./auth/login')
