@@ -1,7 +1,9 @@
 const express = require('express')
 const { sequelize } = require('../db/connection')
 const Package = require('../models/package')
-const path = require('path')
+const User = require('../models/user')
+const auth = require('../auth')
+const userConverter = require('../converter/userConverter')
 
 const router = express.Router()
 const pageSize = 20
@@ -9,8 +11,18 @@ const pageSize = 20
 
 router.use((req, res, next) => {
     console.log('Time: ', Date.now())
+    const decodeJwt = auth.getJWTClaims(req)
+    const user = userConverter.ConvertSeesionJWTToUser(decodeJwt)
+    if(!checkPermission(user)) return res.sendStatus(403)
+
     next()
 })
+
+function checkPermission(user) {
+    if(user.roles && user.roles.includes(User.UserRoles.USER)) return true
+    return false
+}
+
 
 router.get('/', async (req, res) => {
     const offset = (req.query.page || 0) * pageSize

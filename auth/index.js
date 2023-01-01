@@ -1,10 +1,11 @@
 const jose = require('jose')
 const jwtHelper = require('./jwtHelper')
 
+
 const authValidate = async function (req, res, next) {
     console.log('Time: ', Date.now())
 
-    jwt = getJWTfromRequest(req)
+    jwt = getJWTFromRequest(req)
     if(!jwt) {
         return res.status(401).end()
     }
@@ -17,14 +18,14 @@ const authValidate = async function (req, res, next) {
     } catch(err) {
         console.log(err)
         console.log('Auth Validate: failed')
-        //return res.redirect("/login")
         return res.status(403).end()
     }
     
     next()
 }
 
-function getJWTfromRequest(req) {
+
+function getJWTFromRequest(req) {
     if(req.headers.authorization &&
     req.headers.authorization.split(" ")[0] === 'Bearer') {
         return req.headers.authorization.split(" ")[1]
@@ -38,4 +39,9 @@ function getJWTfromRequest(req) {
     return undefined
 }
 
-module.exports = { authValidate }
+function getJWTClaims(req) {
+    const jwt = getJWTFromRequest(req);
+    return jose.decodeJwt(jwt);
+}
+
+module.exports = { authValidate, getJWTClaims}

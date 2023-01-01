@@ -1,12 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const { sequelize } = require('../db/connection')
-const Package = require('../models/package')
+// const { sequelize } = require('../db/connection')
+// const Package = require('../models/package')
 const UploadFile = require('../models/uploadFile')
 const path = require('path')
 const formidable = require('formidable')
 const fs = require('fs-extra')
 const appInfoHelper = require('../packages/appInfoHelper')
+const auth = require('../auth')
+const userConverter = require('../converter/userConverter')
+const User = require('../models/user')
 
 const tmpUploadDir = process.env.DATA_PATH + '/tmp/upload'
 const cachesPackagesDir = process.env.DATA_PATH + '/caches/packages'
@@ -16,8 +19,18 @@ const packageDir = process.env.DATA_PATH + '/packages'
 
 router.use((req, res, next) => {
     console.log('Time: ', Date.now())
+    const decodeJwt = auth.getJWTClaims(req)
+    const user = userConverter.ConvertSeesionJWTToUser(decodeJwt)
+    if(!checkPermission(user)) return res.sendStatus(403)
+
     next()
 })
+
+function checkPermission(user) {
+    if(user.roles && user.roles.includes(User.UserRoles.ADMIN)) return true
+    return false
+}
+
 
 
 router.post('/', (req, res) => {

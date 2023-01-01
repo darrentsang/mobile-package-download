@@ -9,13 +9,13 @@ const login = require('./auth/login')
 const packages = require('./packages')
 const upload = require('./upload')
 
-app.use(cookieParser());
-app.use(express.json());
+app.use(cookieParser())
+app.use(express.json())
 
 app.use('/login', login)
-app.use(authValidate);
-app.use('/packages', packages);
-app.use('/upload', upload);
+app.use(authValidate)
+app.use('/packages', packages)
+app.use('/upload', upload)
 
 
 app.listen(5001, () => { console.log("Server started and listening port 5001...")})

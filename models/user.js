@@ -10,6 +10,9 @@ const User = sequelize.define('User', {
         get() {
             const rawValue = this.getDataValue('roles');
             return rawValue ? rawValue.split(',') : null;
+        },
+        set(value) {
+            this.setDataValue('roles', value.join(','));
         }
     }
 }, {
@@ -19,4 +22,9 @@ const User = sequelize.define('User', {
     }]
 })
 
-module.exports = User
+const UserRoles = {
+    USER: 'USER',
+    ADMIN: 'ADMIN'
+}
+
+module.exports = { User, UserRoles}
