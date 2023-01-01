@@ -55,35 +55,6 @@
     }
   },
   {
-    "_id": "11107408-2e91-40b1-ac71-1161258bb19d",
-    "colId": "history",
-    "containerId": "",
-    "name": "Get /packages/DistinctDisplayName ",
-    "url": "{{host}}/packages/distinctdisplayname",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T10:40:52.426Z",
-    "headers": [
-      {
-        "name": "Authorization",
-        "value": "Bearer {{authorization}}"
-      }
-    ],
-    "params": [],
-    "tests": [],
-    "preReq": {
-      "runRequests": [
-        {
-          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
-          "colId": "history",
-          "triggerCondition": "run-always",
-          "triggerValue": ""
-        }
-      ]
-    }
-  },
-  {
     "_id": "930122b4-6e04-41e1-ae49-6f47395c44cf",
     "colId": "history",
     "containerId": "",
@@ -238,6 +209,77 @@
       "runRequests": [
         {
           "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "62683d37-2ddf-4dea-bb35-760997ff0ccd",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/overview",
+    "url": "{{host}}/packages/overview",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T11:48:57.950Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json[0].id",
+        "action": "setto",
+        "value": "{{overview_first_id}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.[0].displayName",
+        "action": "setto",
+        "value": "{{overview_first_displayName}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:displayName/versionHistory",
+    "url": "{{host}}/packages/{{overview_first_displayName}}/versionHistory",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T11:49:10.111Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "62683d37-2ddf-4dea-bb35-760997ff0ccd",
           "colId": "history",
           "triggerCondition": "run-always",
           "triggerValue": ""

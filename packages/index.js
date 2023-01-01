@@ -1,5 +1,5 @@
 const express = require('express')
-const { sequelize } = require('../db/connection')
+const { sequelize, Op } = require('../db/connection')
 const Package = require('../models/package')
 const User = require('../models/user')
 const auth = require('../auth')
@@ -36,22 +36,41 @@ router.get('/', async (req, res) => {
     res.send(packages)
 })
 
-router.get('/groupByDisplayName', async (req, res) => {
-    var packages = await Package.findAll({ 
-        group: 'displayName', 
-        order: [[sequelize.literal('max(createdAt)'), 'DESC']]
+
+router.get('/overview', async(req, res) => {
+    var uniquePackageList = await Package.findAll({ 
+        attributes: [
+            'displayName',
+            [sequelize.fn("MAX", sequelize.col("id")), "id"]],
+        group: 'displayName'
     })
+
+    var packages = await Package.findAll({
+        where: {
+            id: uniquePackageList.map( i => i.id)
+        },
+        order: [['createdAt', 'DESC']]
+    })
+
 
     res.send(packages)    
 })
 
-router.get('/distinctDisplayName', async (req, res) => {
-    var packages = await Package.findAll({
-        attributes: ['displayName', 'id'],
-        distinct: true
+router.get('/:displayName/versionHistory', async(req, res) => {
+
+    var versionHistory = await Package.findAll({
+        attributes: [
+            'versionName',
+            'buildVersion',
+            'displayName',
+            'bundleIdentifier',
+            'fileName'],
+        where: { displayName: req.params.displayName },
+        order: [['versionName', 'DESC'], ['id','DESC']]
     })
 
-    res.send(packages)    
+    res.send(versionHistory)
+
 })
 
 

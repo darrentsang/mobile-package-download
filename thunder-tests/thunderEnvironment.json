@@ -34,15 +34,23 @@
       },
       {
         "name": "authorization",
-        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRhcnJlbiIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY3MjU2NDg4MywiZXhwIjoxNjcyNTgyODgzfQ.o0VGnyrp1RJOaren03V4vxr-Pq78Y6JIZFiNRrOHNoc"
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MjU3Mzk2MSwiZXhwIjoxNjcyNTkxOTYxfQ.DCEUsmiJG51caU89XG-C6mE7DX4DnhCp1r7Nsc51mo8"
       },
       {
         "name": "upload_ios.uuid",
-        "value": "29ea0a6d-3b8d-47a5-8d6d-5ca423ffc03e"
+        "value": "1e3b6b5a-04bd-4695-b401-5719c2128321"
       },
       {
         "name": "upload_android.uuid",
-        "value": "9d9f3471-c83f-4f2e-a932-2049c6fd93f1"
+        "value": "5313a4cc-fd1e-418a-a84d-9e711dd9a365"
+      },
+      {
+        "name": "overview_first_id",
+        "value": "11"
+      },
+      {
+        "name": "overview_first_displayName",
+        "value": "BitbarIOSSample"
       }
     ]
   }
