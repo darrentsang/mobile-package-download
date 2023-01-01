@@ -2,12 +2,13 @@ const { DataTypes } = require('sequelize')
 const { sequelize } = require('../db/connection')
 
 const Package = sequelize.define("Package", {
-    platform: DataTypes.ENUM('ios', 'android'),
-    versionName: DataTypes.STRING,
-    buildVersion: DataTypes.STRING,
-    displayName: DataTypes.STRING,
-    bundleIdentifier: DataTypes.STRING,
-    icon: DataTypes.TEXT
+    platform: { type: DataTypes.ENUM('ios', 'android'), allowNull: false},
+    versionName: { type: DataTypes.STRING, allowNull: false },
+    buildVersion: { type: DataTypes.STRING, allowNull: false },
+    displayName: { type: DataTypes.STRING, allowNull: false },
+    bundleIdentifier: { type: DataTypes.STRING, allowNull: false },
+    icon: { type: DataTypes.TEXT, allowNull: false },
+    fileName: { type: DataTypes.STRING, allowNull: false }
 }, {
     indexes: [
         {
