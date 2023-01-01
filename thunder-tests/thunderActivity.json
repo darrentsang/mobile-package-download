@@ -87,12 +87,12 @@
     "_id": "930122b4-6e04-41e1-ae49-6f47395c44cf",
     "colId": "history",
     "containerId": "",
-    "name": "Post /packages/upload(Android)",
-    "url": "{{host}}/packages/upload",
+    "name": "Post /upload(Android)",
+    "url": "{{host}}/upload",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T09:06:44.669Z",
+    "modified": "2023-01-01T09:21:40.197Z",
     "headers": [
       {
         "name": "Authorization",
@@ -128,12 +128,12 @@
     "_id": "6fdcaf88-8ea8-4bc5-bdef-4c63ef9eff98",
     "colId": "history",
     "containerId": "",
-    "name": "Post /packages/upload(Android)/:uuid",
-    "url": "{{host}}/packages/upload/{{upload_android.uuid}}",
+    "name": "Post /upload(Android)/:uuid",
+    "url": "{{host}}/upload/{{upload_android.uuid}}",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T09:06:29.910Z",
+    "modified": "2023-01-01T09:21:29.498Z",
     "headers": [
       {
         "name": "Authorization",
@@ -174,12 +174,12 @@
     "_id": "7c389253-f9f2-4d4f-ae72-c2fe6762463a",
     "colId": "history",
     "containerId": "",
-    "name": "Post /packages/upload(ios)/:uuid",
-    "url": "{{host}}/packages/upload/{{upload_ios.uuid}}",
+    "name": "Post /upload(ios)/:uuid",
+    "url": "{{host}}/upload/{{upload_ios.uuid}}",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T09:06:19.609Z",
+    "modified": "2023-01-01T09:21:34.220Z",
     "headers": [
       {
         "name": "Authorization",
@@ -220,12 +220,12 @@
     "_id": "3e2e1b59-ddfb-4e4d-b8ec-eb9f21187bcc",
     "colId": "history",
     "containerId": "",
-    "name": "Post /packages/upload(ios)",
-    "url": "{{host}}/packages/upload",
+    "name": "Post /upload(ios)",
+    "url": "{{host}}/upload",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T09:06:08.465Z",
+    "modified": "2023-01-01T09:21:37.823Z",
     "headers": [
       {
         "name": "Authorization",

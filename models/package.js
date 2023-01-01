@@ -7,8 +7,8 @@ const Package = sequelize.define("Package", {
     buildVersion: { type: DataTypes.STRING, allowNull: false },
     displayName: { type: DataTypes.STRING, allowNull: false },
     bundleIdentifier: { type: DataTypes.STRING, allowNull: false },
-    icon: { type: DataTypes.TEXT, allowNull: false },
-    fileName: { type: DataTypes.STRING, allowNull: false }
+    fileName: { type: DataTypes.STRING, allowNull: false },
+    icon: { type: DataTypes.TEXT, allowNull: false }
 }, {
     indexes: [
         {
