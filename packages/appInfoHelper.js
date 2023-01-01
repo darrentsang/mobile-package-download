@@ -1,15 +1,21 @@
 const AppInfoParser = require('app-info-parser')
 
 
-function extractAppInfo(filePath) {
+async function extractAppInfo(filePath) {
     const parser = new AppInfoParser(filePath);
-    parser.parse().then(result => {
-        console.log('app info ----> ', JSON.stringify(result))
+    try {
+        const result = await parser.parse()
+        console.log('app info ----> ', result)
         console.log('app info lenght ----> ', JSON.stringify(result).length)
-    }).catch(err => {
+        return result
+    }
+    catch (err) {
         console.log('err ----> ', err)
-    })
+        throw err
+    }
 }
 
 //extractAppInfo('./data/packages/bitbar-ios-sample.ipa')
 //extractAppInfo('./data/packages/calculator.ipa')
+
+module.exports = { extractAppInfo}
