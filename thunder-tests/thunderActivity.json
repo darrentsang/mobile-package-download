@@ -92,7 +92,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T07:44:23.245Z",
+    "modified": "2023-01-01T09:06:44.669Z",
     "headers": [
       {
         "name": "Authorization",
@@ -110,7 +110,7 @@
         "type": "set-env-var",
         "custom": "json.uuid",
         "action": "setto",
-        "value": "{{upload.uuid}}"
+        "value": "{{upload_android.uuid}}"
       }
     ],
     "preReq": {
@@ -129,11 +129,11 @@
     "colId": "history",
     "containerId": "",
     "name": "Post /packages/upload(Android)/:uuid",
-    "url": "{{host}}/packages/upload/{{upload.uuid}}",
+    "url": "{{host}}/packages/upload/{{upload_android.uuid}}",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T07:44:29.194Z",
+    "modified": "2023-01-01T09:06:29.910Z",
     "headers": [
       {
         "name": "Authorization",
@@ -148,7 +148,7 @@
       "files": [
         {
           "name": "file",
-          "value": "../data/packages/bitbar-sample-app.apk"
+          "value": "../data/sample/DBSOmni.apk"
         }
       ]
     },
@@ -175,11 +175,11 @@
     "colId": "history",
     "containerId": "",
     "name": "Post /packages/upload(ios)/:uuid",
-    "url": "{{host}}/packages/upload/{{upload.uuid}}",
+    "url": "{{host}}/packages/upload/{{upload_ios.uuid}}",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T07:57:02.280Z",
+    "modified": "2023-01-01T09:06:19.609Z",
     "headers": [
       {
         "name": "Authorization",
@@ -225,7 +225,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T07:55:20.170Z",
+    "modified": "2023-01-01T09:06:08.465Z",
     "headers": [
       {
         "name": "Authorization",
@@ -243,7 +243,7 @@
         "type": "set-env-var",
         "custom": "json.uuid",
         "action": "setto",
-        "value": "{{upload.uuid}}"
+        "value": "{{upload_ios.uuid}}"
       }
     ],
     "preReq": {

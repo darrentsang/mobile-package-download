@@ -34,11 +34,15 @@
       },
       {
         "name": "authorization",
-        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRhcnJlbiIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY3MjU1OTA2NiwiZXhwIjoxNjcyNTc3MDY2fQ.gBFJ_k1PoU0XeHwhaLrrFuZYb4pwZq08fGUkXDju5lg"
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRhcnJlbiIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY3MjU2MzMwNCwiZXhwIjoxNjcyNTgxMzA0fQ.OxQP1E3gZAQR00-66amAs-B0WvrHZ5B9eTZy1v-oBSU"
       },
       {
-        "name": "upload.uuid",
-        "value": "af4425a4-3221-4f97-9d36-648e24fe4d76"
+        "name": "upload_ios.uuid",
+        "value": "29ea0a6d-3b8d-47a5-8d6d-5ca423ffc03e"
+      },
+      {
+        "name": "upload_android.uuid",
+        "value": "9d9f3471-c83f-4f2e-a932-2049c6fd93f1"
       }
     ]
   }
