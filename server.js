@@ -1,6 +1,7 @@
-var express = require('express');
+var express = require('express')
 var cookieParser = require('cookie-parser')
-var app = express();
+var cors = require('cors')
+var app = express()
 require('dotenv').config()
 global.__basedir = __dirname;
 
@@ -9,6 +10,8 @@ const login = require('./services/auth/login')
 const packages = require('./services/packages')
 const upload = require('./services/upload')
 
+
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 
