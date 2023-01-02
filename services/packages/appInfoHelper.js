@@ -1,5 +1,5 @@
 const AppInfoParser = require('app-info-parser')
-const Package = require('../models/package')
+const Package = require('../../models/package')
 
 
 async function extractAppInfo(filePath) {

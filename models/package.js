@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../db/connection')
+const { sequelize } = require('../utils/db/connection')
 
 const Package = sequelize.define("Package", {
     platform: { type: DataTypes.ENUM('ios', 'android'), allowNull: false},

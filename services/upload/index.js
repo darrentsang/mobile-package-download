@@ -1,15 +1,13 @@
 const express = require('express')
 const router = express.Router()
-// const { sequelize } = require('../db/connection')
-// const Package = require('../models/package')
-const UploadFile = require('../models/uploadFile')
+const UploadFile = require('../../models/uploadFile')
 const path = require('path')
 const formidable = require('formidable')
 const fs = require('fs-extra')
 const appInfoHelper = require('../packages/appInfoHelper')
 const auth = require('../auth')
-const userConverter = require('../converter/userConverter')
-const User = require('../models/user')
+const userConverter = require('../../converter/userConverter')
+const User = require('../../models/user')
 
 const tmpUploadDir = process.env.DATA_PATH + '/tmp/upload'
 const cachesPackagesDir = process.env.DATA_PATH + '/caches/packages'

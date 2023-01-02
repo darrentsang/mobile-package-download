@@ -1,5 +1,5 @@
 require('dotenv').config()
-const {sequelize} = require('./db/connection')
+const {sequelize} = require('./utils/db/connection')
 const {User} = require('./models/user')
 const {Package} = require('./models/package')
 const {UploadFile} = require('./models/uploadFile')

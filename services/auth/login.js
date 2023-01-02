@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const jwtHelper = require('./jwtHelper')
-const {User} = require('../models/user')
+const {User} = require('../../models/user')
 
 router.post('/', async (req, res) => {
     const reqUsername = req.body.username

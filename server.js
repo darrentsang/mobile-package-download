@@ -4,10 +4,10 @@ var app = express();
 require('dotenv').config()
 global.__basedir = __dirname;
 
-const {authValidate} = require('./auth')
-const login = require('./auth/login')
-const packages = require('./packages')
-const upload = require('./upload')
+const {authValidate} = require('./services/auth')
+const login = require('./services/auth/login')
+const packages = require('./services/packages')
+const upload = require('./services/upload')
 
 app.use(cookieParser())
 app.use(express.json())

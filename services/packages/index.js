@@ -1,9 +1,9 @@
 const express = require('express')
-const { sequelize, Op } = require('../db/connection')
-const Package = require('../models/package')
-const User = require('../models/user')
+const { sequelize, Op } = require('../../utils/db/connection')
+const Package = require('../../models/package')
+const User = require('../../models/user')
 const auth = require('../auth')
-const userConverter = require('../converter/userConverter')
+const userConverter = require('../../converter/userConverter')
 
 const router = express.Router()
 const pageSize = 20

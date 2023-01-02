@@ -1,7 +1,7 @@
 require('dotenv').config()
 const jwtHelper = require('./jwtHelper')
 const jose = require('jose')
-const User = require('../models/user')
+const User = require('../../models/user')
 const {test} = require('node:test')
 const assert = require('node:assert')
 
