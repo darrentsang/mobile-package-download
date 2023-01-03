@@ -90,7 +90,7 @@ export default function Login() {
               autoComplete="current-password"
             />
             <FormLabel 
-              error="true"
+              error={true}
               color="error"
               hidden={!error}
             >Login Failed: Your username or password is incorrect</FormLabel>
