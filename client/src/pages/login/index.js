@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,6 +25,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const navigate = useNavigate();
   const [error, setError] = React.useState(false)
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +41,7 @@ export default function Login() {
       if(loginRes.data.returnCode === 'SUCCESS') {
         setError(false)
         console.log('SUCCESS')
-        return true
+        return navigate('/')
       }
 
     } catch(err) {
