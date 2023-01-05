@@ -30,8 +30,8 @@ function getJWTFromRequest(req) {
     req.headers.authorization.split(" ")[0] === 'Bearer') {
         return req.headers.authorization.split(" ")[1]
     }
-    if(req.cookies.authorization) {
-        return req.cookies.authorization
+    if(req.cookies.auth) {
+        return req.cookies.auth
     }
     if(req.query.jwt) {
         return req.query.jwt
