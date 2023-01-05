@@ -28,19 +28,24 @@ const cards = [1, 2, 3, 4, 5, ];
 const theme = createTheme();
 
 export default function Home() {
-  const [packages, setPackages]= React.useState(null)
+  const [packages, setPackages]= React.useState([])
+  React.useEffect(() => {
+    loadPackages();
+  }, [])
 
-  packagesService.getPackagesOverview()
-  .then(res => {
+  const loadPackages = () => {
 
-  })
-  .catch(err => {
+    packagesService.getPackagesOverview()
+    .then(res => {
+      setPackages(res.data)
+    })
+    .catch(err => {
+      console.log(err)
 
-  })
+    })
+  }
 
-
-
-  return packages && (
+  return packages.length > 0 && (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
@@ -56,21 +61,21 @@ export default function Home() {
           {/* End hero unit */}
           <Box sx={{ width: '100%' }} >
             <Stack spacing={2}>
-                {cards.map((card) => (
-                        <Card sx={{ display: 'flex' }} key={card}>
+                {packages.map((p) => (
+                        <Card sx={{ display: 'flex' }} key={p.id}>
                             <CardMedia
                                 component="img"
-                                sx={{ width: 125, heigh: 125 }}
-                                image="https://source.unsplash.com/random?h=100&w=100"
-                                alt="Live from space album cover"
+                                sx={{ width: 100, heigh: 100 }}
+                                image={p.icon}
+                                alt={p.displayName}
                             />
                             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                 <CardContent sx={{ flex: '1 0 auto' }}>
                                     <Typography component="div" variant="h5">
-                                        Live From Space
+                                        {p.displayName}
                                     </Typography>
                                     <Typography variant="subtitle1" color="text.secondary" component="div">
-                                        Version 1.0.0 (65434)
+                                        Version {p.versionName} ({p.buildVersion})
                                     </Typography>
                                 </CardContent>
                             </Box>
@@ -84,7 +89,6 @@ export default function Home() {
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
         </Typography>
         <Typography
           variant="subtitle1"
@@ -92,7 +96,7 @@ export default function Home() {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          {/* Something here to give the footer a purpose! */}
         </Typography>
         <Copyright />
       </Box>
