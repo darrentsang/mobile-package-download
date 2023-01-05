@@ -32,10 +32,6 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     const username = data.get('username')
     const password = data.get('password')
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
     try {
       const loginRes = await loginService.login(username, password)
       if(loginRes.data.returnCode === 'SUCCESS') {
