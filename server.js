@@ -11,7 +11,6 @@ const packages = require('./services/packages')
 const upload = require('./services/upload')
 
 
-app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 
