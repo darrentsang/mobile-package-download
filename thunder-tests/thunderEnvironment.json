@@ -34,23 +34,27 @@
       },
       {
         "name": "authorization",
-        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MjU3Mzk2MSwiZXhwIjoxNjcyNTkxOTYxfQ.DCEUsmiJG51caU89XG-C6mE7DX4DnhCp1r7Nsc51mo8"
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzAyMzY4NiwiZXhwIjoxNjczMDQxNjg2fQ.v-wOGHkM3OHcAGFjezwkNIOsNA-FJPPARhdU9NSuIsA"
       },
       {
         "name": "upload_ios.uuid",
-        "value": "1e3b6b5a-04bd-4695-b401-5719c2128321"
+        "value": "2c849523-ce61-4a86-9b9f-5e4091ebd2c4"
       },
       {
         "name": "upload_android.uuid",
-        "value": "5313a4cc-fd1e-418a-a84d-9e711dd9a365"
+        "value": "4f5c929c-becb-4f28-9be9-e7d0837afcb4"
       },
       {
         "name": "overview_first_id",
-        "value": "11"
+        "value": "13"
       },
       {
         "name": "overview_first_displayName",
         "value": "BitbarIOSSample"
+      },
+      {
+        "name": "packageId",
+        "value": "13"
       }
     ]
   }
