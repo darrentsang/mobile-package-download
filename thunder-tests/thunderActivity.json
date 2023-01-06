@@ -308,7 +308,36 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-06T16:48:05.178Z",
+    "modified": "2023-01-06T16:51:10.924Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "7bc3265f-9727-438c-9269-4b2f0e8f8dd7",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:id.plist",
+    "url": "{{host}}/packages/{{packageId}}.plist",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-06T16:53:01.974Z",
     "headers": [
       {
         "name": "Authorization",

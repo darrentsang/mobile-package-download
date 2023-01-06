@@ -1,9 +1,10 @@
 const express = require('express')
-const { sequelize, Op } = require('../../utils/db/connection')
+const { sequelize } = require('../../utils/db/connection')
 const Package = require('../../models/package')
 const User = require('../../models/user')
 const auth = require('../auth')
 const userConverter = require('../../converter/userConverter')
+const fs = require('fs-extra')
 
 const router = express.Router()
 const pageSize = 20
@@ -41,6 +42,21 @@ router.get('/:id(\\d+)', async (req, res) => {
     var package = await Package.findByPk(req.params.id)
 
     res.send(package)
+})
+router.get('/:id(\\d+).plist', async (req, res) => {
+    var package = await Package.findByPk(req.params.id)
+    fs.readFile(global.__basedir + '/template.plist', function (err, template) {
+      if (err) {
+        throw err; 
+      }
+      template = template.toString().replace('{{public share link for you ipa}}', package.fileName)
+      template = template.replace('{{app bundle identifier}}', package.bundleIdentifier)
+      template = template.replace('{{bundle version}}', package.versionName)
+      template = template.replace('{{App Title}}', package.displayName)
+
+      res.set('Content-Type', 'text/xml');
+      res.send(template);
+    });
 })
 
 
@@ -80,9 +96,6 @@ router.post('/versionHistory', async(req, res) => {
     res.send(versionHistory)
 
 })
-
-
-
 
 
 module.exports = router

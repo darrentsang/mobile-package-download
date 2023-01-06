@@ -34,7 +34,7 @@
       },
       {
         "name": "authorization",
-        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzAyMzY4NiwiZXhwIjoxNjczMDQxNjg2fQ.v-wOGHkM3OHcAGFjezwkNIOsNA-FJPPARhdU9NSuIsA"
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzAyNDY1OCwiZXhwIjoxNjczMDQyNjU4fQ.JT5Jj8pHj52Th_jy8w4Wbt51MNduk1TTWTvga5I4vq0"
       },
       {
         "name": "upload_ios.uuid",
