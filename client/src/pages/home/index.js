@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Apps from '@mui/icons-material/Apps';
 import Card from '@mui/material/Card';
@@ -28,6 +29,7 @@ const cards = [1, 2, 3, 4, 5, ];
 const theme = createTheme();
 
 export default function Home() {
+  const navigate = useNavigate()
   const [packages, setPackages]= React.useState([])
   React.useEffect(() => {
     loadPackages();
@@ -36,13 +38,17 @@ export default function Home() {
   const loadPackages = () => {
 
     packagesService.getPackagesOverview()
-    .then(res => {
-      setPackages(res.data)
+    .then(data => {
+      setPackages(data)
     })
     .catch(err => {
       console.log(err)
-
+      return navigate('/login')
     })
+  }
+  
+  const onClickPackage = (packageName) => {
+    navigate(`/package/${packageName}`)
   }
 
   return packages.length > 0 && (
@@ -62,7 +68,7 @@ export default function Home() {
           <Box sx={{ width: '100%' }} >
             <Stack spacing={2}>
                 {packages.map((p) => (
-                        <Card sx={{ display: 'flex' }} key={p.id}>
+                        <Card sx={{ display: 'flex' }} key={p.id} onClick={() => onClickPackage(p.displayName)}>
                             <CardMedia
                                 component="img"
                                 sx={{ width: 100, heigh: 100 }}

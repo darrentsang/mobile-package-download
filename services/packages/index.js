@@ -36,6 +36,13 @@ router.get('/', async (req, res) => {
     res.send(packages)
 })
 
+router.get('/:id(\\d+)', async (req, res) => {
+
+    var package = await Package.findByPk(req.params.id)
+
+    res.send(package)
+})
+
 
 router.get('/overview', async(req, res) => {
     var uniquePackageList = await Package.findAll({ 
@@ -56,22 +63,25 @@ router.get('/overview', async(req, res) => {
     res.send(packages)    
 })
 
-router.get('/:displayName/versionHistory', async(req, res) => {
-
+router.post('/versionHistory', async(req, res) => {
+    console.log(req.body.name)
     var versionHistory = await Package.findAll({
         attributes: [
+            'id',
             'versionName',
             'buildVersion',
             'displayName',
             'bundleIdentifier',
             'fileName'],
-        where: { displayName: req.params.displayName },
+        where: { displayName: req.body.name },
         order: [['versionName', 'DESC'], ['id','DESC']]
     })
 
     res.send(versionHistory)
 
 })
+
+
 
 
 

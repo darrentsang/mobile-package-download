@@ -1,13 +1,44 @@
 import axios from 'axios'
 
-const overviewURL = process.env.REACT_APP_API_ENDPOINT + "/packages/overview"
-
 export const getPackagesOverview = async() => {
     try {
-        const result = await axios.get(overviewURL) 
+        const url = process.env.REACT_APP_API_ENDPOINT + "/packages/overview"
+        const result = await axios.get(url) 
         console.log(result)
 
-        return result
+        return result.data
+    }
+    catch(err) {
+        console.log(err)
+        throw err
+    }
+
+}
+export const getPackage = async(id) => {
+    try {
+        const url = process.env.REACT_APP_API_ENDPOINT + `/packages/${id}`
+        const result = await axios.get(url) 
+        console.log(result)
+
+        return result.data
+    }
+    catch(err) {
+        console.log(err)
+        throw err
+    }
+
+}
+
+export const postPckageVersionHistory = async(name) => {
+    try {
+
+        const url = process.env.REACT_APP_API_ENDPOINT + `/packages/versionHistory`
+        const result = await axios.post(url, {
+            name: name
+        }) 
+        console.log(result)
+
+        return result.data
     }
     catch(err) {
         console.log(err)
