@@ -20,6 +20,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/material';
 import AppBar from '../../components/AppBar'
 import * as packagesService from '../../services/packages'
+import authHelper from '../../utils/authHelper'
 
 function Copyright() {
   return (
@@ -61,6 +62,23 @@ export default function Package() {
     }
   }
 
+  const DownloadPackage = (p) => {
+    var url = ""
+    switch(p.platform) {
+      case 'android':
+        url = `${window.location.origin}/api/packages/${p.fileName}?auth=${authHelper.getAuthFromLocal()}`
+        break;
+      case 'ios':
+        const ipaUrl = `${window.location.origin}/api/packages/${p.id}.plist?auth=${authHelper.getAuthFromLocal()}`
+        url = `itms-services://?action=download-manifest&url=${ipaUrl}`
+        break;
+    }
+
+    window.location = url
+    return false;
+  }
+
+
   return data && (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -70,7 +88,7 @@ export default function Package() {
           {/* End hero unit */}
           <Box sx={{ width: '100%' }} >
             <Stack spacing={2}>
-                <Card sx={{ display: 'flex' }} key={data.firstPackage.id} >
+                <Card sx={{ display: 'flex' }} key={"Top_"+data.firstPackage.id} >
                     <CardMedia
                         component="img"
                         sx={{ width: 100, heigh: 100 }}
@@ -81,10 +99,9 @@ export default function Package() {
                         <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
                                 {data.firstPackage.displayName}
+                                {data.firstPackage.platform==='android'? <Android htmlColor='gray'/> : <Apple  htmlColor='gray'/>}
                             </Typography>
-                            {/* <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Version {data.firstPackage.versionName} ({data.firstPackage.buildVersion})
-                            </Typography> */}
+                            
                         </CardContent>
                     </Box>
                 </Card>
@@ -92,15 +109,17 @@ export default function Package() {
                 <List dense={true}>
                 {data.packages.map((p) => (
                     <ListItem
+                        key={p.id}
                         secondaryAction={
-                        <IconButton edge="end" aria-label="download">
+                        <IconButton edge="end" aria-label="download" onClick={() => DownloadPackage(p)}>
                             <GetAppRounded />
                         </IconButton>
                         }
                     >
                         <ListItemText
-                        primary={p.displayName + " Version " + p.versionName + " (" + p.buildVersion + ") "}
+                        primary={p.versionName + " (" + p.buildVersion + ") "}
                         />
+                        {p.platform==='android'? <Android htmlColor='gray'/> : <Apple  htmlColor='gray'/>}
                     </ListItem>
                 )) }
                 </List>

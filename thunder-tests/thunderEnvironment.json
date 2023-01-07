@@ -30,15 +30,15 @@
     "data": [
       {
         "name": "host",
-        "value": "https://localhost:3000/api"
+        "value": "https://192.168.1.33:3000/api"
       },
       {
         "name": "authorization",
-        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzA3NzQ4OSwiZXhwIjoxNjczMDk1NDg5fQ._kjZEZD5KedQZnLdugZwglhwTSed3i6W4o1bMqbAlro"
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzExMDg1MSwiZXhwIjoxNjczMTI4ODUxfQ.mlEd9a2J7quGYasyMcfCUsqssCimFeQpwyJsufopN5U"
       },
       {
         "name": "upload_ios.uuid",
-        "value": "5e655fbb-0844-4547-8fb9-732d5737286e"
+        "value": "2612224c-51e2-4341-ac80-3431059bd203"
       },
       {
         "name": "upload_android.uuid",
@@ -46,19 +46,19 @@
       },
       {
         "name": "overview_first_id",
-        "value": "16"
+        "value": "17"
       },
       {
         "name": "overview_first_displayName",
-        "value": "Card+ HK UAT"
+        "value": "BitbarIOSSample"
       },
       {
         "name": "packageId",
-        "value": "16"
+        "value": "17"
       },
       {
         "name": "packageFileName",
-        "value": "25c7a93e-0e00-4e6c-bb2b-1175f26b86ac.apk"
+        "value": "e4fe775c-b5cc-4b45-b242-d369b65413aa.ipa"
       }
     ]
   }

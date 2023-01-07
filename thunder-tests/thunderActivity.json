@@ -34,11 +34,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T10:40:46.665Z",
+    "modified": "2023-01-07T09:29:07.691Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "Bearer {{authorization}}"
+        "value": "Bearer {{authorization}}",
+        "isDisabled": true
       }
     ],
     "params": [],
@@ -144,7 +145,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T10:41:25.263Z",
+    "modified": "2023-01-07T14:46:56.894Z",
     "headers": [
       {
         "name": "Authorization",
@@ -159,7 +160,7 @@
       "files": [
         {
           "name": "file",
-          "value": "../data/sample/bitbar-ios-sample.ipa"
+          "value": "../../../Downloads/Card_Plus_HK_UAT_20230106172436.ipa"
         }
       ]
     },
@@ -184,17 +185,18 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-01T10:41:16.429Z",
+    "modified": "2023-01-07T14:47:02.797Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "Bearer {{authorization}}"
+        "value": "Bearer {{authorization}}",
+        "isDisabled": true
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"fileName\": \"bitbar-ios-sample.ipa\"\n}",
+      "raw": "{\n  \"fileName\": \"Card_Plus_HK_UAT_20230106172436.ipa\"\n}",
       "form": []
     },
     "tests": [
@@ -308,7 +310,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-07T07:43:52.585Z",
+    "modified": "2023-01-07T09:31:40.883Z",
     "headers": [
       {
         "name": "Authorization",
@@ -344,7 +346,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-06T16:53:01.974Z",
+    "modified": "2023-01-07T09:27:45.696Z",
     "headers": [
       {
         "name": "Authorization",
@@ -392,5 +394,19 @@
         }
       ]
     }
+  },
+  {
+    "_id": "5fc4f230-377b-47dc-8179-97bc37aeaeef",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{host}}/api/dfsdf",
+    "url": "{{host}}/api/dfsdf",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-07T14:00:41.272Z",
+    "modified": "2023-01-07T14:00:41.272Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
