@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -69,9 +68,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -103,6 +99,10 @@ dist
 
 # TernJS port file
 .tern-port
-=======
-node_modules
->>>>>>> c29012e (base reactjs client and express service)
+
+.DS_Store
+
+data/packages/
+data/tmp/
+data/caches/
+data/database.sqlite

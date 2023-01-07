@@ -1,0 +1,412 @@
+[
+  {
+    "_id": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+    "colId": "history",
+    "containerId": "",
+    "name": "login",
+    "url": "{{host}}/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:05:31.674Z",
+    "modified": "2023-01-07T07:43:46.361Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\": \"super\",\n  \"password\": \"123456\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.sessionJWT",
+        "action": "setto",
+        "value": "{{authorization}}"
+      }
+    ]
+  },
+  {
+    "_id": "f44f5132-f082-40b5-8618-169f8e1feaf4",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages",
+    "url": "{{host}}/packages",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T09:29:07.691Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "930122b4-6e04-41e1-ae49-6f47395c44cf",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /upload(Android)",
+    "url": "{{host}}/upload",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T10:41:21.472Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"fileName\": \"bitbar-sample-app.apk\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.uuid",
+        "action": "setto",
+        "value": "{{upload_android.uuid}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "6fdcaf88-8ea8-4bc5-bdef-4c63ef9eff98",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /upload(Android)/:uuid",
+    "url": "{{host}}/upload/{{upload_android.uuid}}",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T10:41:28.189Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "../data/sample/DBSOmni.apk"
+        }
+      ]
+    },
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "930122b4-6e04-41e1-ae49-6f47395c44cf",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "7c389253-f9f2-4d4f-ae72-c2fe6762463a",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /upload(ios)/:uuid",
+    "url": "{{host}}/upload/{{upload_ios.uuid}}",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T14:46:56.894Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "../../../Downloads/Card_Plus_HK_UAT_20230106172436.ipa"
+        }
+      ]
+    },
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "3e2e1b59-ddfb-4e4d-b8ec-eb9f21187bcc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "3e2e1b59-ddfb-4e4d-b8ec-eb9f21187bcc",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post /upload(ios)",
+    "url": "{{host}}/upload",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T14:47:02.797Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"fileName\": \"Card_Plus_HK_UAT_20230106172436.ipa\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.uuid",
+        "action": "setto",
+        "value": "{{upload_ios.uuid}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "62683d37-2ddf-4dea-bb35-760997ff0ccd",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/overview",
+    "url": "{{host}}/packages/overview",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-01T11:48:57.950Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json[0].id",
+        "action": "setto",
+        "value": "{{overview_first_id}}"
+      },
+      {
+        "type": "set-env-var",
+        "custom": "json.[0].displayName",
+        "action": "setto",
+        "value": "{{overview_first_displayName}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "85873e8e-2f0c-4726-bb88-92c8f02edc3f",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/versionHistory",
+    "url": "{{host}}/packages/versionHistory",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-06T16:47:52.065Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"{{overview_first_displayName}}\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json[0].id",
+        "action": "setto",
+        "value": "{{packageId}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "62683d37-2ddf-4dea-bb35-760997ff0ccd",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "58ac522d-60f0-4b42-8692-125c1753c079",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:id",
+    "url": "{{host}}/packages/{{packageId}}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T09:31:40.883Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.fileName",
+        "action": "setto",
+        "value": "{{packageFileName}}"
+      }
+    ],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "7bc3265f-9727-438c-9269-4b2f0e8f8dd7",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:id.plist",
+    "url": "{{host}}/packages/{{packageId}}.plist",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T09:27:45.696Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "9dbd540a-e4cb-4a2e-8306-0713529afed2",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:packageFileName",
+    "url": "{{host}}/packages/{{packageFileName}}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T05:39:59.973Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "58ac522d-60f0-4b42-8692-125c1753c079",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "5fc4f230-377b-47dc-8179-97bc37aeaeef",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{host}}/api/dfsdf",
+    "url": "{{host}}/api/dfsdf",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-07T14:00:41.272Z",
+    "modified": "2023-01-07T14:00:41.272Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

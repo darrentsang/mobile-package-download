@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "32d8f037-a88a-4d14-8a7b-336cb7be858c",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -2,
+    "created": "2023-01-01T06:25:11.740Z",
+    "modified": "2023-01-01T06:25:11.740Z",
+    "data": []
+  },
+  {
+    "_id": "d11e351c-5460-4b6e-a4f0-16fc9146329e",
+    "name": "(Local Env)",
+    "default": false,
+    "global": true,
+    "local": true,
+    "sortNum": -1,
+    "created": "2023-01-01T06:25:23.576Z",
+    "modified": "2023-01-01T06:25:23.576Z",
+    "data": []
+  },
+  {
+    "_id": "2185d92a-e15a-4bec-8648-43ef6891ad94",
+    "name": "local",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-01-01T06:41:07.003Z",
+    "modified": "2023-01-01T06:41:07.003Z",
+    "data": [
+      {
+        "name": "host",
+        "value": "https://192.168.1.33:3000/api"
+      },
+      {
+        "name": "authorization",
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl0sImlhdCI6MTY3MzExMDg1MSwiZXhwIjoxNjczMTI4ODUxfQ.mlEd9a2J7quGYasyMcfCUsqssCimFeQpwyJsufopN5U"
+      },
+      {
+        "name": "upload_ios.uuid",
+        "value": "2612224c-51e2-4341-ac80-3431059bd203"
+      },
+      {
+        "name": "upload_android.uuid",
+        "value": "25c7a93e-0e00-4e6c-bb2b-1175f26b86ac"
+      },
+      {
+        "name": "overview_first_id",
+        "value": "17"
+      },
+      {
+        "name": "overview_first_displayName",
+        "value": "BitbarIOSSample"
+      },
+      {
+        "name": "packageId",
+        "value": "17"
+      },
+      {
+        "name": "packageFileName",
+        "value": "e4fe775c-b5cc-4b45-b242-d369b65413aa.ipa"
+      }
+    ]
+  }
+]
