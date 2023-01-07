@@ -28,13 +28,16 @@ const authValidate = async function (req, res, next) {
 function getJWTFromRequest(req) {
     if(req.headers.authorization &&
     req.headers.authorization.split(" ")[0] === 'Bearer') {
+        console.log('JWT from header')
         return req.headers.authorization.split(" ")[1]
     }
     if(req.cookies.auth) {
+        console.log('JWT from Cookies')
         return req.cookies.auth
     }
-    if(req.query.jwt) {
-        return req.query.jwt
+    if(req.query.auth) {
+        console.log('JWT from query')
+        return req.query.auth
     }
     return undefined
 }
@@ -44,4 +47,4 @@ function getJWTClaims(req) {
     return jose.decodeJwt(jwt);
 }
 
-module.exports = { authValidate, getJWTClaims}
+module.exports = { authValidate, getJWTClaims, getJWTFromRequest}
