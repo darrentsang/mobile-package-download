@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Apps from '@mui/icons-material/Apps';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import GetAppRounded from '@mui/icons-material/GetAppRounded';
+import Android from '@mui/icons-material/Android';
+import Apple from '@mui/icons-material/Apple';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -17,6 +18,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/material';
+import AppBar from '../../components/AppBar'
 import * as packagesService from '../../services/packages'
 
 function Copyright() {
@@ -62,14 +64,7 @@ export default function Package() {
   return data && (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Apps sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            App
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <AppBar />
       <main>
         <Container sx={{ py: 8 }} maxWidth="xs">
           {/* End hero unit */}

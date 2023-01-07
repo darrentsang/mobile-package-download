@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Apps from '@mui/icons-material/Apps';
+import AppBar from '../../components/AppBar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -54,14 +52,7 @@ export default function Home() {
   return packages.length > 0 && (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Apps sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            App
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <AppBar />
       <main>
         <Container sx={{ py: 8 }} maxWidth="xs">
           {/* End hero unit */}
