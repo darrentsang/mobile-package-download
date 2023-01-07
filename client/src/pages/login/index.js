@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import FormLabel from '@mui/material/FormLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import * as loginService from '../../services/auth/loginService'
+import authHelper from '../../utils/authHelper'
 
 function Copyright(props) {
   return (
@@ -36,6 +37,7 @@ export default function Login() {
       const loginRes = await loginService.login(username, password)
       if(loginRes.data.returnCode === 'SUCCESS') {
         setError(false)
+        authHelper.setAuthFromLocal(loginRes.data.sessionJWT)
         console.log('SUCCESS')
         return navigate('/')
       }
