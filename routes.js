@@ -6,6 +6,12 @@ const packages = require('./services/packages')
 const upload = require('./services/upload')
 
 
+router.use((req, res, next) => {
+    console.log('Time: ', Date.now(), " URL: ", req.url)
+    next()
+})
+
+
 router.use('/login', login)
 router.use(authValidate)
 router.use('/packages', packages)
