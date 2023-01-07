@@ -7,7 +7,7 @@ const authValidate = async function (req, res, next) {
 
     jwt = getJWTFromRequest(req)
     if(!jwt) {
-        return res.status(401).end()
+        return res.sendStatus(401).end()
     }
 
     try {
@@ -18,7 +18,7 @@ const authValidate = async function (req, res, next) {
     } catch(err) {
         console.log(err)
         console.log('Auth Validate: failed')
-        return res.status(403).end()
+        return res.sendStatus(403).end()
     }
     
     next()
