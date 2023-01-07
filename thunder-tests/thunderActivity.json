@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-01T06:05:31.674Z",
-    "modified": "2023-01-01T10:45:01.578Z",
+    "modified": "2023-01-07T07:43:46.361Z",
     "headers": [],
     "params": [],
     "body": {
@@ -308,7 +308,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-01T06:21:58.904Z",
-    "modified": "2023-01-06T16:51:10.924Z",
+    "modified": "2023-01-07T07:43:52.585Z",
     "headers": [
       {
         "name": "Authorization",
@@ -316,7 +316,14 @@
       }
     ],
     "params": [],
-    "tests": [],
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.fileName",
+        "action": "setto",
+        "value": "{{packageFileName}}"
+      }
+    ],
     "preReq": {
       "runRequests": [
         {
@@ -350,6 +357,35 @@
       "runRequests": [
         {
           "reqId": "53fe898c-2f12-4e31-ba4b-61da7a4051dc",
+          "colId": "history",
+          "triggerCondition": "run-always",
+          "triggerValue": ""
+        }
+      ]
+    }
+  },
+  {
+    "_id": "9dbd540a-e4cb-4a2e-8306-0713529afed2",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get /packages/:packageFileName",
+    "url": "{{host}}/packages/{{packageFileName}}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-01T06:21:58.904Z",
+    "modified": "2023-01-07T05:39:59.973Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer {{authorization}}"
+      }
+    ],
+    "params": [],
+    "tests": [],
+    "preReq": {
+      "runRequests": [
+        {
+          "reqId": "58ac522d-60f0-4b42-8692-125c1753c079",
           "colId": "history",
           "triggerCondition": "run-always",
           "triggerValue": ""
