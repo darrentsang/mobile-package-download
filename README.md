@@ -26,7 +26,9 @@ Mobile Package Download contains functions to install Android and iOS applicatio
  $ npm run dev
 ```
 
-Login the page by different role belows:
+Login the page https://localhost:3000/login
+
+To login by below user account for differnt user roles:
 
 |User Role|Username|Password|Description| 
 |---|---|---|---|
