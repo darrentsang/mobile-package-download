@@ -69,7 +69,7 @@ export default function Package() {
         url = `${window.location.origin}/api/packages/${p.fileName}?auth=${authHelper.getAuthFromLocal()}`
         break;
       case 'ios':
-        const ipaUrl = `${window.location.origin}/api/packages/${p.id}.plist?auth=${authHelper.getAuthFromLocal()}`
+        const ipaUrl = encodeURIComponent(`${window.location.origin}/api/packages/${p.id}.plist?auth=${authHelper.getAuthFromLocal()}`)
         url = `itms-services://?action=download-manifest&url=${ipaUrl}`
         break;
     }
