@@ -1,4 +1,4 @@
-# Mobile Package Download
+# Introduction
 
 Mobile Package Download contains functions to install Android and iOS application via web. Below functions included in this projects
 - Overview page for listing the uploaded Android & iOS application
@@ -35,3 +35,11 @@ To login by below user account for differnt user roles:
 |User|user|123456|For download and install only|
 |Admin|admin|123456|For upload ipa and apk|
 |Super|super|123456|Owning the both access for User and Admin role| 
+
+# To Do
+Items to be implemented in this project below:
+1. To support AWS S3 for IPA and APK storage
+1. To support file caching for IPA and APK 
+1. UI Layout refinement
+1. To adding hashtag for uploaded IPA and APK file.
+1. To search mobile package by hashtag 
