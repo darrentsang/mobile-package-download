@@ -48,7 +48,7 @@ router.get('/:id(\\d+).plist', async (req, res) => {
       if (err) {
         throw err; 
       }
-      const ipaUrl = `https://192.168.1.33:3000/api/packages/${package.fileName}?auth=${auth.getJWTFromRequest(req)}`
+      const ipaUrl = `https://${process.env.DOMAIN}/api/packages/${package.fileName}?auth=${auth.getJWTFromRequest(req)}`
       template = template.toString().replace('{{ipa url}}', ipaUrl)
       template = template.replace('{{app bundle identifier}}', package.bundleIdentifier)
       template = template.replace('{{bundle version}}', package.versionName)
