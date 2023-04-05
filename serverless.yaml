@@ -5,10 +5,37 @@ provider:
   runtime: nodejs18.x
   stage: dev
   region: us-east-1
- 
+  environment:
+    SERVERLESS: Y 
+	
+package:
+  excludeDevDependencies: true
+  patterns:
+    - '!data/sample'
+    - '!data/packages'
+    - '!client/node_modules'
+
+# functions:
+#   app:
+#     handler: server.handler
+#     events:
+#       - http: ANY /
+#       - http: 'ANY /{proxy+}'
 functions:
-  app:
+  frontend:
+    handler: client/handler.frontend  
+    events:
+      - http:
+          path: /
+          method: any
+          cors: true
+    package:
+      include:
+        - client/build/**
+  backend:
     handler: server.handler
     events:
-      - http: ANY /
-      - http: 'ANY /{proxy+}'
+      - http:
+          path: /api/{proxy+}
+          method: any
+          cors: true

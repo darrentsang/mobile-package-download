@@ -8,7 +8,8 @@
     "server": "nodemon --ignore thunder-tests server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "tableInit": "node dbTableInit.js"
+    "tableInit": "node dbTableInit.js",
+    "sls-deploy": "npm run build --prefix client && sls deploy"
   },
   "author": "",
   "license": "ISC",

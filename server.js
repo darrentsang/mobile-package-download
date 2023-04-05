@@ -12,5 +12,11 @@ app.use(express.json())
 app.use('/api', routes)
 
 
-// app.listen(5001, () => { console.log("Server started and listening port 5001...")})
-module.exports.handler = serverless(app)
+
+if(process.env.SERVERLESS=== 'Y')
+{
+    console.log('Run in SERVERLESS')
+    module.exports.handler = serverless(app)
+}
+else 
+    app.listen(5001, () => { console.log("Server started and listening port 5001...")})
